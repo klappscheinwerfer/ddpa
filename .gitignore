@@ -1,1 +1,4 @@
+# Directories
 output/
+temp/
+__pycache__/
