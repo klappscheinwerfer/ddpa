@@ -1,4 +1,4 @@
-# Discord data package analyzer
+# Discord Data Package Analyzer
 
 Analyses / extracts data from a discord data package.
 
