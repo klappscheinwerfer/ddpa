@@ -34,5 +34,6 @@ if __name__ == '__main__':
 	messages_df = pd.concat(messages_csv, axis=0, ignore_index=True)
 	del messages_csv
 
-	# Get all links
-	ddpa.get_links(messages_df, out_dir)
+	# Attachments
+	ddpa.attachments.get_list(messages_df, out_dir)
+	ddpa.attachments.download(messages_df, out_dir)
