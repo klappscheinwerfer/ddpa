@@ -1,7 +1,9 @@
+import collections
 import os
 import requests
 import pandas as pd
 import numpy as np
+from matplotlib import pyplot as plt
 
 
 def get_list(df, out):
@@ -23,3 +25,12 @@ def download(df, out):
 			response = requests.get(url)
 			open(out + fname, "wb").write(response.content)
 			print("Download finished: " + url)
+
+
+def plot_extension_stats(df, out):
+	extensions = []
+	for url in df["Attachments"].dropna():
+		extensions.append(os.path.splitext(url)[1])
+	c = collections.Counter(extensions)
+	plt.pie(c.values(), labels = c.keys())
+	plt.show()

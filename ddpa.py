@@ -34,6 +34,22 @@ if __name__ == '__main__':
 	messages_df = pd.concat(messages_csv, axis=0, ignore_index=True)
 	del messages_csv
 
+	"""Activity
+	#activities_json = []
+	for subdir, dirs, files in os.walk(in_dir + "activity"):
+		for file in files:
+			try:
+				filepath = os.path.join(subdir, file)
+				print(filepath)
+				events = pd.read_json(filepath, lines=True)
+				print(events)
+				del events
+			except:
+				print("exception")
+			#activities_json.append(events)"""
+
 	# Attachments
 	ddpa.attachments.get_list(messages_df, out_dir)
 	ddpa.attachments.download(messages_df, out_dir)
+	#ddpa.attachments.plot_extension_stats(messages_df, out_dir)
+	del messages_df
