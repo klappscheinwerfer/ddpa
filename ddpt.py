@@ -1,4 +1,4 @@
-import ddpa
+import ddpt
 import os
 import sys
 import shutil
@@ -49,7 +49,7 @@ if __name__ == '__main__':
 			#activities_json.append(events)"""
 
 	# Attachments
-	ddpa.attachments.get_list(messages_df, out_dir)
-	ddpa.attachments.download(messages_df, out_dir)
+	ddpt.attachments.get_list(messages_df, out_dir)
+	ddpt.attachments.download(messages_df, out_dir)
 	#ddpa.attachments.plot_extension_stats(messages_df, out_dir)
 	del messages_df

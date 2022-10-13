@@ -1,6 +1,6 @@
-# Discord Data Package Analyzer
+# Discord Data Package Tools
 
-Analyses / extracts data from a discord data package.
+A tool for analysing and extracting data from a Discord data package.
 
 Currently work-in-progress
 
@@ -14,6 +14,6 @@ Install all dependencies
 
 `pip install -r requirements.txt`
 
-Run main.py with a path to your zip file or extracted folder
+Run ddpt.py with a path to your zip file or extracted folder
 
-`python3 ddpa.py path/to/data/`
+`python3 ddpt.py path/to/data/`
