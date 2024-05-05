@@ -13,26 +13,27 @@ if __name__ == '__main__':
 		quit()
 	in_dir = sys.argv[1]
 	if os.path.isfile(in_dir):
-		shutil.unpack_archive(in_dir, "temp/")
-		in_dir = "temp/"
+		shutil.unpack_archive(in_dir, "temp")
+		in_dir = "temp"
 	elif (os.path.isdir(in_dir)):
 		pass
 	else:
 		print("Invalid path: {}".format(in_dir))
 		quit()
-	out_dir = "output/"
+	out_dir = "output"
 
 	# Create dataframes
 	# Messages
-	messages_csv = []
-	for subdir, dirs, files in os.walk(in_dir + "messages"):
+	messages_json = []
+	for subdir, dirs, files in os.walk(in_dir + "/messages"):
 		for file in files:
 			filepath = os.path.join(subdir, file)
-			if file.endswith('.csv'):
-				msg = pd.read_csv(filepath)
-				messages_csv.append(msg)
-	messages_df = pd.concat(messages_csv, axis=0, ignore_index=True)
-	del messages_csv
+			if file.endswith('messages.json'):
+				# print(filepath)
+				msg = pd.read_json(filepath)
+				messages_json.append(msg)
+	messages_df = pd.concat(messages_json, axis=0, ignore_index=True)
+	del messages_json
 
 	"""Activity
 	#activities_json = []
@@ -51,5 +52,5 @@ if __name__ == '__main__':
 	# Attachments
 	ddpt.attachments.get_list(messages_df, out_dir)
 	ddpt.attachments.download(messages_df, out_dir)
-	#ddpa.attachments.plot_extension_stats(messages_df, out_dir)
-	del messages_df
+	#ddpt.attachments.plot_extension_stats(messages_df, out_dir)
+	#del messages_df

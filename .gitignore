@@ -1,4 +1,8 @@
 # Directories
-output/
+output*/
 temp/
 __pycache__/
+venv/
+
+# Files
+private.txt

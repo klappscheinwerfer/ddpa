@@ -1,2 +1,6 @@
-pandas
+matplotlib
 numpy
+pandas
+PyQt5
+requests
+tqdm
