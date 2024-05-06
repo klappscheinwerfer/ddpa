@@ -1,1 +1,0 @@
-import ddpt.attachments

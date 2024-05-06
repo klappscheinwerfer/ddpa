@@ -17,18 +17,18 @@ def get_list(df, out):
 
 def download(df, out):
 	print("Downloading attachments")
-	out = out + "/attachments"
+	out = os.path.join(out, "attachments")
 	# Multiple attachments possible?
 	for url in tqdm(df["Attachments"].replace("", np.nan).dropna()):
 		spliturl = url.split("/")
 		fname = spliturl[-2] + "_" + spliturl[-1].split("?")[0]
 		# print(fname)
-		if os.path.isfile(out + "/" + fname):
+		if os.path.isfile(os.path.join(out, fname)):
 			pass
 			# print("File already exists: " + out + fname)
 		else:
 			response = requests.get(url)
-			open(out + "/" + fname, "wb").write(response.content)
+			open(os.path.join(out, fname), "wb").write(response.content)
 			#print("Download finished: " + fname)
 
 
